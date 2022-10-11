@@ -1,0 +1,122 @@
+<script>
+ /*
+ 
+<div id="b"></div>
+<script type="text/javascript">
+ht= new XMLHttpRequest();
+function a(){document.getElementById("0").style.display="none";a=["Input","Data","Info","Delete",""];b=a.length;c="";for( i=0;i<b;i++)c+="<div onclick='a1("+i+")'>"+a[i]+"</div>";document.getElementById("a").innerHTML=c;}
+function a1(d){//document.getElementById("b").innerHTML=d;
+document.getElementById("0").style.display="block";
+document.getElementsByTagName("form")[0].reset();
+
+
+*/
+</script>
+
+
+
+
+<style type="text/css">
+#t_a{display:flex;background:blue;justify-content:center;}
+#t_a>div{text-align:center;color:red;margin:12px;height:50px;background:yellow;font-size:28px;}
+</style>
+<body onload="t_a()">
+<div id="t_a"></div>
+
+
+<div id="0" >
+<form>
+<center><span>Please Fill-Up:</span></center>
+ Position : <input type="number" name="ai" required><br>
+ NAME : <input type="text" name="an"  required><br>
+ Gender : 
+ <input type="radio"name="ag" id="a1" value="M"> <label for="a1">Male</label>
+ <input type="radio"name="ag" id="a2" value="F" required> <label for="a2">Female</label>
+ <br>
+ District : <input type="text" name="ad"  required><br>
+ Mobile <input type="number" name="am"  required><br>
+ 
+ Bloor Group:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="radio"name="ab" id="a3" value="A+" ><label for="a3"> A+</label>
+  <input type="radio"name="ab" id="a4" value="B+"> <label for="a4">B+</label>
+   <input type="radio"name="ab" id="a5" value="AB+"> <label for="a5">AB+</label>
+   <input type="radio"name="ab" id="a6" value="O+"> <label for="a6">O+</label><br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   <input type="radio"name="ab" id="a7" value="A-"> <label for="a7">A-</label>
+   <input type="radio"name="ab" id="a8" value="B-"> <label for="a8">B-</label>
+   <input type="radio"name="ab" id="a9" value="AB-"> <label for="a9">AB-</label>
+   <input type="radio"name="ab" id="a10" value="O-" required> <label for="a10">O-</label><br><br>
+<button hidden="hidden" id="clk"></button> 
+ </form>
+ <center><button onclick="f1()">Submit</button></center>
+ </div>
+ <div id="1">
+ </div>
+ <div id="2">Delete Menu: <sup id=""  onclick="function fn(){document.getElementById('2').style.display='none';}fn();"> ×</sup><br>
+ 1. Delete All <button ondblclick="f3()">Delete</button>dblC<br>
+ <center>Id= <input id="sq"  style=" width:35%;padding:20px;" ><br><button onclick="f4()">Delete</button>
+ <button onclick="f2()">Show Info</button></center>
+ 
+ </div>
+ <div id="3">This 3
+ </div>
+ 
+ 
+<div id="t_b"></div>
+<script>
+ht= new XMLHttpRequest();
+function t_a(){t_a=["Input","Data","Info","Delete"];
+t_b=t_a.length;t_c="";for( i=0;i<t_b;i++){
+document.getElementById(i).style.display="none";
+t_c+="<div onclick='a1("+i+")'>"+t_a[i]+"</div>";}
+document.getElementById("t_a").innerHTML=t_c;}
+function a1(t_d){for(let i=0;i<t_b;i++)
+document.getElementById(i).style.display="none";
+document.getElementById(t_d).style.display="block";
+document.getElementById("t_b").innerHTML="";
+if(t_d==1)data();}
+
+
+
+function f1(){inp=document.getElementsByTagName("input");ai=inp[0].value;an=inp[1].value;if(inp[2].checked==true)ag=inp[2].value;else if(inp[3].checked==true)ag=inp[3].value;else ag="";ad=inp[4].value;am=inp[5].value;ab="";for(let i=6;i<14;i++){if(inp[i].checked==true)ab=inp[i].value;}if(ai==""||an==""||ag==""||ad==""||am==""||ab==""){document.getElementById("clk").click();return false;p=1;}
+v="ai="+ai+"&an="+an+"&ag="+ag+"&ad="+ad+"&am="+am+"&ab="+encodeURIComponent(ab);ht.open("GET","https://programlife4.000webhostapp.com/f1/p4.php?"+v);
+ht.send();ht.onload= function fn(){document.getElementById("t_b").innerHTML=ht.responseText;}}
+
+
+
+
+function data(){ht.open("GET","https://programlife4.000webhostapp.com/f1/p3.php?");
+ht.send();
+ht.onload= function fan(){
+document.getElementById("t_b").innerHTML="<table border='1' ><tr><th>Id</th><th>Name</th><th>District</th><th>Gender</th><th>Mobile</th><th>BG</th></tr>"+ht.responseText;
+}
+}
+
+
+function f2(){
+v="where Id ="+document.getElementById("sq").value;
+ht.open("GET","https://programlife4.000webhostapp.com/f1/p1.php?sq="+v);
+
+ht.send();
+ht.onload= function fpn(){
+document.getElementById("t_b").innerHTML=ht.responseText;
+}
+}
+
+function f3(){
+ht.open("GET","https://programlife4.000webhostapp.com/f1/p2.php?sq=delete from TB1");
+ht.send();
+ht.onload= function fn(){
+alert("successfully delated");
+}
+}
+
+
+function f4(){
+v=" where Id ="+document.getElementById("sq").value;
+ht.open("GET","https://programlife4.000webhostapp.com/f1/p2.php?sq=delete from TB1"+v);
+ht.send();
+ht.onload= function fn(){f2();
+}
+}
+
+</script>
